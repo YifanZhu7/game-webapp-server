@@ -16,6 +16,7 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+  private String name;
   private String username;
   private String password;
   private String birthday;
@@ -106,5 +107,21 @@ public class User {
 
   public void setGames(List<Game> games) {
     this.games = games;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getBirthday() {
+    return birthday;
+  }
+
+  public void setBirthday(String birthday) {
+    this.birthday = birthday;
   }
 }
