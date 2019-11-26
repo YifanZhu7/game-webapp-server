@@ -17,11 +17,17 @@ public class UserController {
   @Autowired
   UserRepository repository;
 
-  @PostMapping("/user")
+  @PostMapping("/users")
   public User createUser(
       @RequestBody User user){
     return repository.save(user);
   }
+
+  @GetMapping("/users")
+  public List<User> findAllUsers() {
+    return(List<User>) repository.findAll();
+  }
+
 
 
 //  @GetMapping("/api/user")
