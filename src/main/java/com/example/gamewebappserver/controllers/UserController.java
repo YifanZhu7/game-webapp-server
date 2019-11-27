@@ -5,6 +5,7 @@ import com.example.gamewebappserver.repositories.UserRepository;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import java.util.List;
 import java.util.Optional;
+import javax.jws.soap.SOAPBinding.Use;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,16 +42,10 @@ public class UserController {
     return null;
   }
 
-  @GetMapping("/login/{usn}/{psd}")
-  public Boolean userLogin(
-      @PathVariable("usn") String usn,
-  @PathVariable("psd") String psd){
-    if (repository.verifyPassword(usn).getPassword().equals(psd)){
-      return true;
-    }
-    else {
-      return false;
-    }
+  @GetMapping("/login/{usn}")
+  public User findUserByUsn(
+      @PathVariable("usn") String usn){
+        return repository.findUserByUsn(usn);
   }
 
 

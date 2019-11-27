@@ -10,6 +10,6 @@ public interface UserRepository
     extends CrudRepository<User, Integer> {
 
   @Query("select user from User user where user.username=:usn")
-  public User verifyPassword(
+  public User findUserByUsn(
       @Param("usn") String usn);
 }
