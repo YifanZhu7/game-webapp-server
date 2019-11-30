@@ -15,7 +15,8 @@ public class Review {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
-  private String comment;
+  private int gameId;
+  private String review;
 
   @ManyToOne
   @JsonIgnore
@@ -32,12 +33,12 @@ public class Review {
     this.id = id;
   }
 
-  public String getComment() {
-    return comment;
+  public String getReview() {
+    return review;
   }
 
-  public void setComment(String comment) {
-    this.comment = comment;
+  public void setReview(String review) {
+    this.review = review;
   }
 
 
@@ -50,4 +51,11 @@ public class Review {
     this.user = user;
   }
 
+  public int getGameId() {
+    return gameId;
+  }
+
+  public void setGameId(int gameId) {
+    this.gameId = gameId;
+  }
 }
