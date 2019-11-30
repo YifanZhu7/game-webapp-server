@@ -16,7 +16,6 @@ public class Review {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private String comment;
-  private int uid;
 
   @ManyToOne
   @JsonIgnore
@@ -41,13 +40,7 @@ public class Review {
     this.comment = comment;
   }
 
-  public int getUid() {
-    return uid;
-  }
 
-  public void setUid(int uid) {
-    this.uid = uid;
-  }
 
   public User getUser() {
     return user;

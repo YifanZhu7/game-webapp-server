@@ -21,6 +21,7 @@ public class GameController {
 
   @Autowired
   GameRepository gameRepository;
+  @Autowired
   UserRepository userRepository;
 
   @GetMapping("/users/{userId}/games")
@@ -30,30 +31,27 @@ public class GameController {
   }
 
   @DeleteMapping("/users/{userId}/games/{gameId}")
-  public void deleteGame(
-      @PathVariable("gameId") int gameId) {
+  public List<Game> deleteGameForUser(
+      @PathVariable("gameId") int gameId,
+      @PathVariable("userId") int userId) {
     gameRepository.deleteById(gameId);
+    return gameRepository.findGamesForUser(userId);
   }
-
-//  @PostMapping("/users/{userId}/games")
-//  public Game createGame(
-//      @PathVariable("userId") int userId,
-//      @RequestBody Game game) {
-//    Optional<User> data = userRepository.findById(userId);
-//    if(data.isPresent()){
-//      User user = data.get();
-//      game.setUser(user);
-//      return gameRepository.save(game);
-//    }
-//    return null;
-//  }
 
   @PostMapping("/users/{userId}/games")
-  public Game createGame(
+  public Game createGameForUser(
       @PathVariable("userId") int userId,
       @RequestBody Game game) {
+    Optional<User> data = userRepository.findById(userId);
+    if(data.isPresent()){
+      User user = data.get();
+      game.setUser(user);
       return gameRepository.save(game);
+    }
+    return null;
   }
+
+
 
 
 }

@@ -17,13 +17,31 @@ public class Game {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private int gameId;
+  private String name;
+  private String imageUrl;
 
   @ManyToOne
   @JsonIgnore
   private User user;
 
-  public Game(){}
+  public Game() {
+  }
 
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getImageUrl() {
+    return imageUrl;
+  }
+
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+  }
 
   public int getGameId() {
     return gameId;

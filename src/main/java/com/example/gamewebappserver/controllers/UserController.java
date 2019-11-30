@@ -2,10 +2,8 @@ package com.example.gamewebappserver.controllers;
 
 import com.example.gamewebappserver.models.User;
 import com.example.gamewebappserver.repositories.UserRepository;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import java.util.List;
 import java.util.Optional;
-import javax.jws.soap.SOAPBinding.Use;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,7 +43,7 @@ public class UserController {
   @GetMapping("/login/{usn}")
   public User findUserByUsn(
       @PathVariable("usn") String usn){
-        return repository.findUserByUsn(usn);
+    return repository.findUserByUsn(usn);
   }
 
 
