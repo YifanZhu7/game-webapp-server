@@ -34,14 +34,15 @@ public class ReviewController {
 //  }
 
   @PostMapping("/users/{userId}/reviews")
-  public Review createReviewForUser(
+  public List<User> createReviewForUser(
       @PathVariable("userId") int userId,
       @RequestBody Review review) {
     Optional<User> data = userRepository.findById(userId);
     if(data.isPresent()){
       User user = data.get();
       review.setUser(user);
-      return reviewRepository.save(review);
+      reviewRepository.save(review);
+      return (List<User>) userRepository.findAll();
     }
     return null;
   }
