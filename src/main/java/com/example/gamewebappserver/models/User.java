@@ -116,4 +116,12 @@ public class User {
   }
 
 
+  public void set(User updateUser) {
+    this.name = updateUser.name;
+//    this.username = updateUser.username;
+    this.password = updateUser.password;
+    this.birthday = updateUser.birthday;
+    this.gender = updateUser.gender;
+    this.email = updateUser.email;
+  }
 }
