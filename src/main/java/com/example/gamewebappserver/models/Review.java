@@ -16,7 +16,10 @@ public class Review {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private int gameId;
+  private String gameName;
+  private String imageUrl;
   private String review;
+
 
   @ManyToOne
   @JsonIgnore
@@ -57,5 +60,21 @@ public class Review {
 
   public void setGameId(int gameId) {
     this.gameId = gameId;
+  }
+
+  public String getGameName() {
+    return gameName;
+  }
+
+  public void setGameName(String gameName) {
+    this.gameName = gameName;
+  }
+
+  public String getImageUrl() {
+    return imageUrl;
+  }
+
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
   }
 }

@@ -26,11 +26,10 @@ public class User {
   @OneToMany(mappedBy = "user")
   private List<Review> reviews = new ArrayList<>();
 
-//  @OneToMany(mappedBy = "user")
-//  private List<User> friends = new ArrayList<>();
-
   @OneToMany(mappedBy = "user")
   private List<Game> games = new ArrayList<>();
+
+//  private List<User> friends = new ArrayList<>();
 
   public User(){}
 
@@ -50,15 +49,6 @@ public class User {
   public void setReviews(List<Review> reviews) {
     this.reviews = reviews;
   }
-
-//  public List<User> getFriends() {
-//    return friends;
-//  }
-//
-//  public void setFriends(List<User> friends) {
-//    this.friends = friends;
-//  }
-
 
   public String getUsername() {
     return username;
@@ -124,4 +114,6 @@ public class User {
   public void setBirthday(String birthday) {
     this.birthday = birthday;
   }
+
+
 }
