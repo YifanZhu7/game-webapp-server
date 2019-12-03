@@ -1,7 +1,6 @@
 package com.example.gamewebappserver.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.tools.javah.Gen;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
