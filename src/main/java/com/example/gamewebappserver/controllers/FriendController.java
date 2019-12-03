@@ -37,14 +37,16 @@ public class FriendController {
 
 
   @PostMapping("/users/{userId}/friends")
-  public Friend addFriendForUser(
+  public List<Friend> addFriendForUser(
       @PathVariable("userId") int userId,
       @RequestBody Friend friend) {
     Optional<User> data = userRepository.findById(userId);
     if(data.isPresent()){
       User user = data.get();
       friend.setUser(user);
-      return friendRepository.save(friend);
+      friendRepository.save(friend);
+      return (List<Friend>) friendRepository.findAll();
+
     }
     return null;
   }
