@@ -25,6 +25,10 @@ public class Review {
   @JsonIgnore
   private User user;
 
+  @ManyToOne
+  @JsonIgnore
+  private Friend friend;
+
   public Review(){}
 
 
@@ -43,7 +47,6 @@ public class Review {
   public void setReview(String review) {
     this.review = review;
   }
-
 
 
   public User getUser() {
@@ -76,5 +79,13 @@ public class Review {
 
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
+  }
+
+  public Friend getFriend() {
+    return friend;
+  }
+
+  public void setFriend(Friend friend) {
+    this.friend = friend;
   }
 }

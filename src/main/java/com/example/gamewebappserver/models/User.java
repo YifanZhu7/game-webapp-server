@@ -29,7 +29,8 @@ public class User {
   @OneToMany(mappedBy = "user")
   private List<Game> games = new ArrayList<>();
 
-//  private List<User> friends = new ArrayList<>();
+  @OneToMany(mappedBy = "user")
+  private List<Friend> friends = new ArrayList<>();
 
   public User(){}
 
@@ -115,6 +116,13 @@ public class User {
     this.birthday = birthday;
   }
 
+  public List<Friend> getFriends() {
+    return friends;
+  }
+
+  public void setFriends(List<Friend> friends) {
+    this.friends = friends;
+  }
 
   public void set(User updateUser) {
     this.name = updateUser.name;

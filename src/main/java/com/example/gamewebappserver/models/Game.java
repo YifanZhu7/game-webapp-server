@@ -24,6 +24,10 @@ public class Game {
   @JsonIgnore
   private User user;
 
+  @ManyToOne
+  @JsonIgnore
+  private Friend friend;
+
   public Game() {
   }
 
@@ -67,4 +71,11 @@ public class Game {
     this.user = user;
   }
 
+  public Friend getFriend() {
+    return friend;
+  }
+
+  public void setFriend(Friend friend) {
+    this.friend = friend;
+  }
 }
