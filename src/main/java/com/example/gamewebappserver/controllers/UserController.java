@@ -23,8 +23,9 @@ public class UserController {
   @PostMapping("/users")
   public User createUser(
       @RequestBody User user){
-    return repository.save(user);
+      return repository.save(user);
   }
+
 
   @GetMapping("/users")
   public List<User> findAllUsers() {
@@ -55,5 +56,7 @@ public class UserController {
     u.set(updateUser);
     return repository.save(u);
   }
+
+
 
 }

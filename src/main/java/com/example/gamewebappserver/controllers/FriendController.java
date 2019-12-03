@@ -43,10 +43,11 @@ public class FriendController {
     Optional<User> data = userRepository.findById(userId);
     if(data.isPresent()){
       User user = data.get();
-      friend.setUser(user);
-      friendRepository.save(friend);
-      return (List<Friend>) friendRepository.findAll();
-
+      if(!user.getFriends().contains(friend)) {
+        friend.setUser(user);
+        friendRepository.save(friend);
+        return (List<Friend>) friendRepository.findAll();
+      }
     }
     return null;
   }
